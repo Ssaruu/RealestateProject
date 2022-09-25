@@ -5,42 +5,91 @@
     Layout = "~/Views/Shared/_PropertyManager.cshtml";
 }
 
-<table class="table">
-    <tr>
-        <th>HouseId</th>
-        <th>HouseSize</th>
-        <th>Price</th>
-        <th>Address</th>
-        <th>HouseStatus</th>
-        <th>HouseType</th>
-        <th>HouseFloorNo</th>
 
 
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.HouseId</td>
-            <td>@item.HouseSize</td>
-            <td>@item.Price</td>
-            <td>@item.Address</td>
-            <td>@item.HouseStatus</td>
-            <td>@item.HouseType</td>
-            <td>@item.HouseFloorNo</td>
+<header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4">
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">Main dashboard</a>
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple active">Insert Property</a>
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple">Delete Property</a>
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple">Update Property</a>
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple">Add User</a>
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple">Report</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar -->
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">
+                <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25" alt="" loading="lazy" />
+            </a>
+            <!-- Search form -->
+            <form class="d-none d-md-flex input-group w-auto my-auto">
+                <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />
+                <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
+            </form>
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+</header>
+
+<!--Main Navigation-->
+<!--Main layout-->
+<main class="main" style="min-height: auto;">
+    <div class="container pt-4">
+        <h1 class="title">List</h1>
+
+        <table class="table">
+            <tr>
+                <th>HouseId</th>
+                <th>HouseSize</th>
+                <th>Price</th>
+                <th>Address</th>
+                <th>HouseStatus</th>
+                <th>HouseType</th>
+                <th>HouseFloorNo</th>
+
+
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.HouseId</td>
+                    <td>@item.HouseSize</td>
+                    <td>@item.Price</td>
+                    <td>@item.Address</td>
+                    <td>@item.HouseStatus</td>
+                    <td>@item.HouseType</td>
+                    <td>@item.HouseFloorNo</td>
 
 
 
 
 
-            <td>
-                <div class="w-75 btn-group" role="group">
-                    <a asp-controller="PropertyManager" asp-route-HouseId="@item.HouseId" asp-action="Edit" class="btn btn-primary">Edit</a>
-                    <a asp-controller="PropertyManager" asp-route-HouseId="@item.HouseId" asp-action="Delete" class="btn btn-danger">Delete</a>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="PropertyManager" asp-route-HouseId="@item.HouseId" asp-action="Edit" class="btn btn-primary">Edit</a>
+                            <a asp-controller="PropertyManager" asp-route-HouseId="@item.HouseId" asp-action="Delete" class="btn btn-danger">Delete</a>
 
-                </div>
-            </td>
-        </tr>
-    }
-</table>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
 
-
+    </div>
+</main>
+<!--Main layout-->
