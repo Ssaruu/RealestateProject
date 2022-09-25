@@ -1,0 +1,60 @@
+﻿@model Project.Models.House;
+
+
+@{
+    ViewData["Title"] = "Insertion";
+    Layout = "~/Views/Shared/_PropertyManager.cshtml";
+}
+
+
+
+<form method="post" asp-action="insertion">
+<section class="form-section">
+    <h1 class="title">Insertion</h1>
+    <div class="container">
+        <div class="form row">
+            <div class="form-field col-lg-6">
+                <input id="houseId" class="input-text" type="text" name="" />
+                <label for="houseId" id="houseIDLabel" class="label" asp-for="HouseId"></label>
+            </div>
+             <div class="form-field col-lg-6" >
+                 <select class="input-text" id="type" asp-for="HouseType" >
+                     <option value="Choose type" class="label" hidden selected>Choose type</option>
+                     <option value="vila">Vila</option>
+                     <option value="storey">Storey</option>
+                     <option value="apartment">Apartment</option>
+                     <option value="building">Building</option>
+                 </select>
+
+            </div>
+            <div class="form-field col-lg-6">
+                <input id="size" class="input-text" type="text" asp-for="HouseSize" />
+                <label for="size" id="sizeLabel" class="label">Size</label>
+            </div>
+            <div class="form-field col-lg-6">
+                <input id="price" class="input-text" type="text" asp-for="Price"/>
+                <label for="price" id="priceLabel" class="label">Price</label>
+            </div>
+            <div class="form-field col-lg-6">
+                <input id="status" class="input-text" type="text" asp-for="HouseStatus" />
+                <label for="status" id="statusLabel"  class="label">Status</label>
+            </div>
+            <div class="form-field col-lg-6">
+                <input id="address" class="input-text" type="text" asp-for="Address" />
+                <label for="address" id="addressLabel" class="label">Address</label>
+            </div>
+            <div class="form-field col-lg-6">
+                <input id="noOfFloors" class="input-text" type="number" asp-for="HouseFloorNo" />
+                <label for="noOfFloors" id="noOfFloorsLabel" class="label">Number of floors</label>
+            </div>
+            <div class="form-field col-lg-6">
+                <input id="picture" class="input-text" type="text" name="" />
+                <label for="picture" class="label">Picture(Optional)</label>
+            </div>
+            <div class="form-field col-lg-12">
+                <input class="submit-btn" type="submit" value="submit"/>
+            </div>
+    </div>
+    </div>
+</section>
+</form>
