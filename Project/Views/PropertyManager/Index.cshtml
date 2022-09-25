@@ -1,8 +1,46 @@
-﻿@{
+﻿@model IEnumerable<House>;
+
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_PropertyManager.cshtml";
 }
 
-<h1>Welcome</h1>
+<table class="table">
+    <tr>
+        <th>HouseId</th>
+        <th>HouseSize</th>
+        <th>Price</th>
+        <th>Address</th>
+        <th>HouseStatus</th>
+        <th>HouseType</th>
+        <th>HouseFloorNo</th>
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.HouseId</td>
+            <td>@item.HouseSize</td>
+            <td>@item.Price</td>
+            <td>@item.Address</td>
+            <td>@item.HouseStatus</td>
+            <td>@item.HouseType</td>
+            <td>@item.HouseFloorNo</td>
+
+
+
+
+
+            <td>
+                <div class="w-75 btn-group" role="group">
+                    <a asp-controller="PropertyManager" asp-route-HouseId="@item.HouseId" asp-action="Edit" class="btn btn-primary">Edit</a>
+                    <a asp-controller="PropertyManager" asp-route-HouseId="@item.HouseId" asp-action="Delete" class="btn btn-danger">Delete</a>
+
+                </div>
+            </td>
+        </tr>
+    }
+</table>
 
 
