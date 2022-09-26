@@ -16,10 +16,16 @@ namespace Project.Controllers
 
         public IActionResult Index()
         {
+        
+            return View();
+        }
+        public IActionResult ViewAll()
+        {
             IEnumerable<House> data = _db.House;
 
             return View(data);
         }
+
         public IActionResult Insertion()
         {
             return View();
@@ -34,7 +40,7 @@ namespace Project.Controllers
 
         }
 
-        public IActionResult Edit(int HouseId)
+        public IActionResult Update(int HouseId)
         {
            
             var obj = _db.House.Find(HouseId);
@@ -42,10 +48,11 @@ namespace Project.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(House obj)
+        public IActionResult Edit(int HouseId)
         {
-                  
-                 _db.House.Update(obj);
+            var obj = _db.House.Find(HouseId);
+
+            _db.House.Update(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
          

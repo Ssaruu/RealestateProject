@@ -6,55 +6,101 @@
     Layout = "~/Views/Shared/_PropertyManager.cshtml";
 }
 
+<header>
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+                    aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">
+                <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25" alt="" loading="lazy" />
+            </a>
+            <!-- Search form -->
+            <form class="d-none d-md-flex input-group w-auto my-auto">
+                <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />
+                <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
+            </form>
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar --
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse navbar-collapse d-lg-block sidebar collapse bg-white">
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4">
+                <a class="list-group-item list-group-item-action active" aria-current="true"><i class="fa fa-home"></i>&nbsp Main dashboard</a>
+                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="ViewAll"><i class="fa fa-eye"></i>&nbsp View Property</a>
+                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Insertion"><i class="fa fa-plus-circle"></i>&nbsp Insert Property</a>
+                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Delete"><i class="fa fa-minus-circle"></i>&nbsp Delete Property</a>
+                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Edit"><i class="fa fa-wrench"></i>&nbsp Update Property </a>
+                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Report"><i class="fa fa-flag"></i>&nbsp Report</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar -->
 
-<form method="post" asp-action="insertion">
-<section class="form-section">
-    <h1 class="title">Insertion</h1>
-    <div class="container">
-        <div class="form row">
-            <div class="form-field col-lg-6">
-                <input id="houseId" class="input-text" type="text" name="" />
-                <label for="houseId" id="houseIDLabel" class="label" asp-for="HouseId"></label>
-            </div>
-             <div class="form-field col-lg-6" >
-                 <select class="input-text" id="type" asp-for="HouseType" >
-                     <option value="Choose type" class="label" hidden selected>Choose type</option>
-                     <option value="vila">Vila</option>
-                     <option value="storey">Storey</option>
-                     <option value="apartment">Apartment</option>
-                     <option value="building">Building</option>
-                 </select>
+</header>
 
-            </div>
-            <div class="form-field col-lg-6">
-                <input id="size" class="input-text" type="text" asp-for="HouseSize" />
-                <label for="size" id="sizeLabel" class="label">Size</label>
-            </div>
-            <div class="form-field col-lg-6">
-                <input id="price" class="input-text" type="text" asp-for="Price"/>
-                <label for="price" id="priceLabel" class="label">Price</label>
-            </div>
-            <div class="form-field col-lg-6">
-                <input id="status" class="input-text" type="text" asp-for="HouseStatus" />
-                <label for="status" id="statusLabel"  class="label">Status</label>
-            </div>
-            <div class="form-field col-lg-6">
-                <input id="address" class="input-text" type="text" asp-for="Address" />
-                <label for="address" id="addressLabel" class="label">Address</label>
-            </div>
-            <div class="form-field col-lg-6">
-                <input id="noOfFloors" class="input-text" type="number" asp-for="HouseFloorNo" />
-                <label for="noOfFloors" id="noOfFloorsLabel" class="label">Number of floors</label>
-            </div>
-            <div class="form-field col-lg-6">
-                <input id="picture" class="input-text" type="text" name="" />
-                <label for="picture" class="label">Picture(Optional)</label>
-            </div>
-            <div class="form-field col-lg-12">
-                <input class="submit-btn" type="submit" value="submit"/>
-            </div>
+<!--Main Navigation-->
+<!--Main layout-->
+<main style="min-height: auto;">
+    <div class="container pt-4">
+        <form method="post" asp-action="Insertion">
+            <section class="form-section">
+                <h1 class="title">Insertion</h1>
+                <div class="container">
+                    <div class="form row">
+                        <div class="form-field col-lg-6">
+                            <input asp-for="HouseId" class="input-text" type="text" name="" />
+                            <label for="houseId" id="houseIDLabel" class="label" asp-for="HouseId"></label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <select class="input-text" id="type" asp-for="HouseType">
+                                <option value="Choose type" class="label" hidden selected>Choose type</option>
+                                <option value="vila">Vila</option>
+                                <option value="storey">Storey</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="building">Building</option>
+                            </select>
+
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="size" class="input-text" type="text" asp-for="HouseSize" />
+                            <label for="size" id="sizeLabel" class="label">Size</label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="price" class="input-text" type="text" asp-for="Price" />
+                            <label for="price" id="priceLabel" class="label">Price</label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="status" class="input-text" type="text" asp-for="HouseStatus" />
+                            <label for="status" id="statusLabel" class="label">Status</label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="address" class="input-text" type="text" asp-for="Address" />
+                            <label for="address" id="addressLabel" class="label">Address</label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="noOfFloors" class="input-text" type="number" asp-for="HouseFloorNo" />
+                            <label for="noOfFloors" id="noOfFloorsLabel" class="label">Number of floors</label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="picture" class="input-text" type="text" name="" />
+                            <label for="picture" class="label">Picture(Optional)</label>
+                        </div>
+                        <div class="form-field col-lg-12">
+                            <input class="submit-btn" type="submit" value="submit" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </form>
     </div>
-    </div>
-</section>
-</form>
+</main>
+<!--Main layout-->

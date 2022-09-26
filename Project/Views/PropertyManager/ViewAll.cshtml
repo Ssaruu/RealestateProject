@@ -1,0 +1,97 @@
+﻿
+
+@{
+    ViewData["Title"] = "ViewAll";
+    Layout = "~/Views/Shared/_PropertyManager.cshtml";
+}
+
+
+<header>
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+                    aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">
+                <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25" alt="" loading="lazy" />
+            </a>
+            <!-- Search form -->
+            <form class="d-none d-md-flex input-group w-auto my-auto">
+                <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />
+                <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
+            </form>
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar --
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse navbar-collapse d-lg-block sidebar collapse bg-white">
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true"><i class="fa fa-home"></i>&nbsp Main dashboard</a>
+                <a href="" class="list-group-item list-group-item-action"><i class="fa fa-eye"></i>&nbsp View Property</a>
+                <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-plus-circle"></i>&nbsp Insert Property</a>
+                <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-minus-circle"></i>&nbsp Delete Property</a>
+                <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-wrench"></i>&nbsp Update Property </a>
+                <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-flag"></i>&nbsp Report</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar -->
+    >
+</header>
+
+<!--Main Navigation-->
+<!--Main layout-->
+<main class="main" style="min-height: auto;">
+    <div class="container pt-4">
+        <h1 class="title">List</h1>
+
+        <table class="table table-hover table-dark">
+            <tr>
+                <th>HouseId</th>
+                <th>HouseSize</th>
+                <th>Price</th>
+                <th>Address</th>
+                <th>HouseStatus</th>
+                <th>HouseType</th>
+                <th>HouseFloorNo</th>
+
+
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.HouseId</td>
+                    <td>@item.HouseSize</td>
+                    <td>@item.Price</td>
+                    <td>@item.Address</td>
+                    <td>@item.HouseStatus</td>
+                    <td>@item.HouseType</td>
+                    <td>@item.HouseFloorNo</td>
+
+
+
+
+
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="PropertyManager" asp-route-HouseId="@item.HouseId" asp-action="Edit" class="btn btn-primary">Edit</a>
+                            <a asp-controller="PropertyManager" asp-route-HouseId="@item.HouseId" asp-action="Delete" class="btn btn-danger">Delete</a>
+
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</main>
+
+<!--Main layout-->
