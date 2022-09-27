@@ -6,8 +6,7 @@ namespace Project.Models
     public class House
     {
         [Key]
-
-        public int HouseId { get; set; }
+        public int? HouseId { get; set; }
 
         public float HouseSize { get; set; }
 

@@ -40,27 +40,73 @@ namespace Project.Controllers
 
         }
 
-        public IActionResult Update(int HouseId)
+
+        public IActionResult Edit(int? HouseId)
         {
-           
+            if (HouseId==null || HouseId == 0)
+            {
+                return NotFound();
+            }
+            var newHouse = _db.House.Find(HouseId);
+            if (newHouse == null)
+            {
+                return NotFound();
+            }
+            return View(newHouse);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(House newHouse)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.House.Update(newHouse);
+                _db.SaveChanges();
+                return RedirectToAction("ViewAll");
+            }
+            return View(newHouse);
+        }
+        [HttpGet]
+        public IActionResult Delete(int? HouseId)
+        {
+            if (HouseId == null || HouseId == 0)
+            {
+                return NotFound();
+            }
             var obj = _db.House.Find(HouseId);
+            if (obj == null)
+            {
+                return NotFound();
+            }
             return View(obj);
         }
 
         [HttpPost]
-        public IActionResult Edit(House HouseId)
+        public IActionResult DeletePost(int? HouseId)
         {
             var obj = _db.House.Find(HouseId);
 
-            _db.House.Update(obj);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-         
+            if (obj == null)
+            {
+                return NotFound();
+
+            }
+            _db.House.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("ViewAll");
         }
         public IActionResult Search()
         {
             ViewBag.searchIndex = "";
             return View();
         }
+
+        public IActionResult AddUser()
+        {
+            return View();
+        }
+      
+
+
     }
 }

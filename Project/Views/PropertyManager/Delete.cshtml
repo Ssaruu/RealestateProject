@@ -36,9 +36,9 @@
             <div class="list-group list-group-flush mx-3 mt-4">
                 <a class="list-group-item list-group-item-action " aria-current="true" asp-controller="PropertyManager" asp-action="Index"><i class="fa fa-home"></i>&nbsp Main dashboard</a>
                 <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="ViewAll"><i class="fa fa-eye"></i>&nbsp View Property</a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Insertion"><i class="fa fa-plus-circle"></i>&nbsp Insert Property</a>
+                <a class="list-group-item list-group-item-action active" asp-controller="PropertyManager" asp-action="Insertion"><i class="fa fa-plus-circle"></i>&nbsp Insert Property</a>
                 <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Delete"><i class="fa fa-minus-circle"></i>&nbsp Delete Property</a>
-                <a class="list-group-item list-group-item-action active" asp-controller="PropertyManager" asp-action="Edit"><i class="fa fa-wrench"></i>&nbsp Update Property </a>
+                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Edit"><i class="fa fa-wrench"></i>&nbsp Update Property </a>
                 <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Report"><i class="fa fa-flag"></i>&nbsp Report</a>
                 <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action=""><i class="fa fa-plus-circle"></i>&nbsp Add User</a>
 
@@ -53,9 +53,9 @@
 <!--Main layout-->
 <main style="min-height: auto;">
     <div class="container pt-4">
-        <form method="post">
+        <form method="post" asp-action="DeletePost">
             <section class="form-section">
-                <h1 class="title">Update</h1>
+                <h1 class="title">Deletion</h1>
                 <div class="container">
                     <div class="form row">
                         <div class="form-field col-lg-6">
@@ -97,7 +97,7 @@
                             <label for="picture" class="label">Picture(Optional)</label>
                         </div>
                         <div class="form-field col-lg-12">
-                            <input class="submit-btn" type="submit" value="Update" />
+                            <input class="submit-btn" type="submit" value="Delete" />
                         </div>
                     </div>
                 </div>

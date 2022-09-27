@@ -10,5 +10,7 @@ namespace Project.Data
 
         }
         public DbSet<House> House { get; set; }
+        public DbSet<House> User { get; set; }
+
     }
 }
