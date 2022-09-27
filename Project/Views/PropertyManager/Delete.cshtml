@@ -19,7 +19,7 @@
 
             <!-- Brand -->
             <a class="navbar-brand" href="#">
-                <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25" alt="" loading="lazy" />
+                <p class="logo">RealEstate</p>
             </a>
             <!-- Search form -->
             <form class="d-none d-md-flex input-group w-auto my-auto">
@@ -34,13 +34,12 @@
     <nav id="sidebarMenu" class="collapse navbar-collapse d-lg-block sidebar collapse bg-white">
         <div class="position-sticky">
             <div class="list-group list-group-flush mx-3 mt-4">
-                <a class="list-group-item list-group-item-action " aria-current="true" asp-controller="PropertyManager" asp-action="Index"><i class="fa fa-home"></i>&nbsp Main dashboard</a>
+                <a class="list-group-item list-group-item-action active" asp-controller="PropertyManager" asp-action="Index"><i class="fa fa-home"></i>&nbsp Main dashboard</a>
                 <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="ViewAll"><i class="fa fa-eye"></i>&nbsp View Property</a>
-                <a class="list-group-item list-group-item-action active" asp-controller="PropertyManager" asp-action="Insertion"><i class="fa fa-plus-circle"></i>&nbsp Insert Property</a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Delete"><i class="fa fa-minus-circle"></i>&nbsp Delete Property</a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Edit"><i class="fa fa-wrench"></i>&nbsp Update Property </a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Report"><i class="fa fa-flag"></i>&nbsp Report</a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action=""><i class="fa fa-plus-circle"></i>&nbsp Add User</a>
+                <a class="list-group-item list-group-item-action " asp-controller="PropertyManager" asp-action="Insertion"><i class="fa fa-plus-circle"></i>&nbsp Insert Property</a>
+                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Report"><i class="fa fa-flag"></i> &nbsp Report </a>
+                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="AddUser"><i class="fa fa-user-plus"></i>&nbsp Add User</a>
+                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="ViewUserDetail"><i class="fa fa-info"></i>&nbsp View Users</a>
 
             </div>
         </div>

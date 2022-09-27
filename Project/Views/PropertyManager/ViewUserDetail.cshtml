@@ -1,15 +1,11 @@
-﻿<!DOCTYPE html>
+﻿
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/style.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+@{
+    ViewData["Title"] = "View User Details";
+    Layout = "~/Views/Shared/_PropertyManager.cshtml";
+}
 
-</head>
+
 <header>
     <!-- Navbar -->
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
@@ -22,12 +18,12 @@
             </button>
 
             <!-- Brand -->
-            <a class="navbar-brand" >
+            <a class="navbar-brand" href="#">
                 <p class="logo">RealEstate</p>
             </a>
             <!-- Search form -->
             <form class="d-none d-md-flex input-group w-auto my-auto">
-                <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search ()' style="min-width: 225px" />
+                <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />
                 <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
             </form>
         </div>
@@ -38,7 +34,6 @@
     <nav id="sidebarMenu" class="collapse navbar-collapse d-lg-block sidebar collapse bg-white">
         <div class="position-sticky">
             <div class="list-group list-group-flush mx-3 mt-4">
-
                 <a class="list-group-item list-group-item-action active" asp-controller="PropertyManager" asp-action="Index"><i class="fa fa-home"></i>&nbsp Main dashboard</a>
                 <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="ViewAll"><i class="fa fa-eye"></i>&nbsp View Property</a>
                 <a class="list-group-item list-group-item-action " asp-controller="PropertyManager" asp-action="Insertion"><i class="fa fa-plus-circle"></i>&nbsp Insert Property</a>
@@ -57,18 +52,45 @@
 <!--Main layout-->
 <main class="main" style="min-height: auto;">
     <div class="container pt-4">
+        <h1 class="title">List</h1>
+
+        <table class="table table-hover ">
+            <tr>
+                <th>Sales Person ID</th>
+                <th>Sales Person Name</th>
+               
+
+
+
+
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.SalesPersonId</td>
+                    <td>@item.SalesPersonName</td>
+                  
+
+
+
+
+                    @*<td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="PropertyManager" asp-route-SalesPersonId="@item.SalesPersonId" asp-action="Edit" class="btn btn-outline-primary">Update</a>
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="PropertyManager" asp-route-HouseId="@item.HouseId" asp-action="Delete" class="btn btn-outline-danger">Delete</a>
+
+                        </div>
+                    </td>*@
+                </tr>
+            }
+        </table>
 
     </div>
 </main>
+
 <!--Main layout-->
-
-
-<body>
-    <div>
-        @RenderBody()
-    </div>
-</body>
-
-<script src="~/js/site.js" asp-append-version="true"></script>
-
-</html>

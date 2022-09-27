@@ -25,6 +25,12 @@ namespace Project.Controllers
 
             return View(data);
         }
+        public IActionResult ViewUserDetail()
+        {
+            IEnumerable<User> data = _db.User;
+
+            return View(data);
+        }
 
         public IActionResult Insertion()
         {
@@ -105,8 +111,16 @@ namespace Project.Controllers
         {
             return View();
         }
-      
 
+        [HttpPost]
+        public IActionResult AddUser(User newUser)
+        {
+            _db.User.Add(newUser);
+            _db.SaveChanges();
+            return Redirect("Index");
+
+
+        }
 
     }
 }
