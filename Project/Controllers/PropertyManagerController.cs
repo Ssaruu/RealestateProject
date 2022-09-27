@@ -48,7 +48,7 @@ namespace Project.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int HouseId)
+        public IActionResult Edit(House HouseId)
         {
             var obj = _db.House.Find(HouseId);
 
