@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Project.Data;
 using Project.Models;
 
+
 namespace Project.Controllers
 {
     public class PropertyManagerController : Controller
@@ -72,35 +73,7 @@ namespace Project.Controllers
             }
             return View(newHouse);
         }
-        [HttpGet]
-        public IActionResult Delete(int? HouseId)
-        {
-            if (HouseId == null || HouseId == 0)
-            {
-                return NotFound();
-            }
-            var obj = _db.House.Find(HouseId);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-            return View(obj);
-        }
-
-        [HttpPost]
-        public IActionResult DeletePost(int? HouseId)
-        {
-            var obj = _db.House.Find(HouseId);
-
-            if (obj == null)
-            {
-                return NotFound();
-
-            }
-            _db.House.Remove(obj);
-            _db.SaveChanges();
-            return RedirectToAction("ViewAll");
-        }
+       
         public IActionResult Search()
         {
             ViewBag.searchIndex = "";
