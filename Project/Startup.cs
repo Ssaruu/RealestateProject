@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Project.Data;
+using Project.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +31,11 @@ namespace Project
 
             IServiceCollection serviceCollection = services.AddDbContext<Data.ApplicationDbContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddIdentity<ApplicationUser, IdentityRole>().
+                AddEntityFrameworkStores<ApplicationDbContext>();
+            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +55,7 @@ namespace Project
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
@@ -54,7 +63,7 @@ namespace Project
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=PropertyManager}/{action=Index}/{id?}");
+                    pattern: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

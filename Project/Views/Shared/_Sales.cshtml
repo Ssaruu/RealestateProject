@@ -22,14 +22,10 @@
             </button>
 
             <!-- Brand -->
-            <a class="navbar-brand" >
+            <a class="navbar-brand">
                 <p id="logo">SRN-RealEstate</p>
             </a>
-            <!-- Search form -->
-            @*<form class="d-none d-md-flex input-group w-auto my-auto">
-                <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search By' style="min-width: 225px" />
-                <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
-            </form>*@
+        
         </div>
         <!-- Container wrapper -->
     </nav>
@@ -39,13 +35,11 @@
         <div class="position-sticky">
             <div class="list-group list-group-flush mx-3 mt-4">
 
-                <a class="list-group-item list-group-item-action active" asp-controller="PropertyManager" asp-action="Index"><i class="fa fa-home"></i>&nbsp Main dashboard</a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="ViewAll"><i class="fa fa-eye"></i>&nbsp View Property</a>
-                <a class="list-group-item list-group-item-action " asp-controller="PropertyManager" asp-action="Insertion"><i class="fa fa-plus-circle"></i>&nbsp Insert Property</a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Report"><i class="fa fa-flag"></i> &nbsp Report </a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="AddUser"><i class="fa fa-user-plus"></i>&nbsp Add User</a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="ViewUserDetail"><i class="fa fa-info"></i>&nbsp View Users</a>
-
+                <a class="list-group-item list-group-item-action active" asp-controller="Sales" asp-action="Index"><i class="fa fa-home"></i>&nbsp Main dashboard</a>
+                <a class="list-group-item list-group-item-action" asp-controller="Account" asp-action="ChangeProfileSales"><i class="fa fa-user-plus"></i>&nbsp Change Profile</a>
+                <a class="list-group-item list-group-item-action " asp-controller="Sales" asp-action="Insert"><i class="fa fa-plus-circle"></i>&nbsp Insert Sales</a>
+                <a class="list-group-item list-group-item-action" asp-controller="Account" asp-action="Logout"><i class="fa fa-minus-square"></i> &nbsp Logout</a>
+               
             </div>
         </div>
     </nav>
@@ -57,6 +51,7 @@
 <!--Main layout-->
 <main class="main" style="min-height: auto;">
     <div class="container pt-4">
+        @RenderBody()
 
     </div>
 </main>
@@ -65,7 +60,6 @@
 
 <body>
     <div>
-        @RenderBody()
     </div>
 </body>
 

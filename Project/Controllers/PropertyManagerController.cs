@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Project.Data;
 using Project.Models;
@@ -15,17 +16,17 @@ namespace Project.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? status="")
         {
-        
+            ViewBag.status = status;
             return View();
         }
-        public IActionResult ViewAll()
-        {
-            IEnumerable<House> data = _db.House;
+        //public IActionResult ViewAll()
+        //{
+        //    IEnumerable<House> data = _db.House;
 
-            return View(data);
-        }
+        //    return View(data);
+        //}
         public IActionResult ViewUserDetail()
         {
             IEnumerable<User> data = _db.User;
@@ -94,6 +95,63 @@ namespace Project.Controllers
 
 
         }
+           public IActionResult DeleteHouse(int? id)
+        {
+            var house = _db.House.Find(id);
+            return View(house);
+        }
 
+        [HttpPost]
+        public IActionResult DeleteHouse(House house)
+        {
+            _db.House.Remove(house);
+            _db.SaveChanges();
+            return Redirect("Index");
+        }
+
+        public IActionResult ViewAll(string index = "", string type = "")
+        {
+            IEnumerable<House> houses;
+            if (type == "" || type == null)
+            {
+                houses = _db.House.Where(temp => temp.Address.Contains(index)).ToList();
+            }
+
+            if (type == "id")
+            {
+                houses = _db.House.Where(temp => temp.HouseId.ToString().Contains(index)).ToList();
+
+            }
+
+            else if (type == "price")
+            {
+                houses = _db.House.Where(temp => temp.Price.ToString().Contains(index)).ToList();
+            }
+            else if (type == "size")
+            {
+                houses = _db.House.Where(temp => temp.HouseSize.ToString().Contains(index)).ToList();
+            }
+            else if (type == "status")
+            {
+                houses = _db.House.Where(temp => temp.HouseStatus.Contains(index)).ToList();
+            }
+            else
+            {
+                houses = _db.House.Where(temp => temp.Address.Contains(index)).ToList();
+            }
+
+
+            return View(houses);
+        }
+
+        public IActionResult AddSalesPerson()
+        {
+            return View();
+        }
+        public IActionResult UserInsertionCompleted(ApplicationUser salesPerson)
+        {
+            return View(salesPerson);
+        }
     }
+   
 }

@@ -5,57 +5,35 @@
     Layout = "~/Views/Shared/_PropertyManager.cshtml";
 }
 
+        <section>
+            <form>
+                <div>
+                    <div class="row">
 
-<header>
-    <!-- Navbar -->
-    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-        <!-- Container wrapper -->
-        <div class="container-fluid">
-            <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
-                    aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                        <div class="col-lg-7">
+                            <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search' name="index" id="index" style="min-width: 225px" />
+                        </div>
+                        <div class="col-lg-2">
+                            <button style="border: none; border-radius: 5px; background-color: #5543ca" type="submit">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="col-lg-3">
+                            <label for="type" class="searchByLabel">Filter By: </label>
+                            <select id="type" class="searchByList" name="type">
+                                <option value="id">ID</option>
+                                <option value="size">Size</option>
+                                <option value="address">Address</option>
+                                <option value="status">Status</option>
+                                <option value="price">price</option>
 
-            <!-- Brand -->
-            <a class="navbar-brand" href="#">
-                <p id="logo">SRN-RealEstate</p>
-            </a>
-            <!-- Search form -->
-            @*<form class="d-none d-md-flex input-group w-auto my-auto">
-                <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search By' style="min-width: 225px" />
-                <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
-            </form>*@
-        </div>
-        <!-- Container wrapper -->
-    </nav>
-    <!-- Navbar --
-    <!-- Sidebar -->
-    <nav id="sidebarMenu" class="collapse navbar-collapse d-lg-block sidebar collapse bg-white">
-        <div class="position-sticky">
-            <div class="list-group list-group-flush mx-3 mt-4">
-                <a class="list-group-item list-group-item-action active" asp-controller="PropertyManager" asp-action="Index"><i class="fa fa-home"></i>&nbsp Main dashboard</a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="ViewAll"><i class="fa fa-eye"></i>&nbsp View Property</a>
-                <a class="list-group-item list-group-item-action " asp-controller="PropertyManager" asp-action="Insertion"><i class="fa fa-plus-circle"></i>&nbsp Insert Property</a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Report"><i class="fa fa-flag"></i> &nbsp Report </a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="AddUser"><i class="fa fa-user-plus"></i>&nbsp Add User</a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="ViewUserDetail"><i class="fa fa-info"></i>&nbsp View Users</a>
+                            </select>
+                        </div>
+                    </div>
 
-            </div>
-        </div>
-    </nav>
-    <!-- Sidebar -->
-    >
-</header>
-
-<!--Main Navigation-->
-<!--Main layout-->
-<main class="main">
-    <div class="container pt-4">
-        <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search By' style="min-width: 225px" />
-
-        <h1 class="title">List</h1>
-
+                </div>
+            </form>
+        </section>
         <table class="table table-hover">
             <tr>
                 <th>HouseId</th>
@@ -67,9 +45,6 @@
                 <th>HouseFloorNo</th>
                 <th>Update</th>
                 <th>Delete</th>
-
-
-
 
             </tr>
             @foreach (var item in Model)
@@ -84,9 +59,6 @@
                     <td>@item.HouseFloorNo</td>
 
 
-
-
-
                     <td>
                         <div class="w-75 btn-group" role="group">
                             <a asp-controller="PropertyManager" asp-route-HouseId="@item.HouseId" asp-action="Edit" class="btn btn-outline-primary">Update</a>
@@ -95,7 +67,7 @@
                     </td>
                     <td>
                         <div class="w-75 btn-group" role="group">
-                            <a asp-controller="PropertyManager" asp-route-HouseId="@item.HouseId" asp-action="Delete" class="btn btn-outline-danger">Delete</a>
+                            <a class="btn btn-outline-danger" href="/PropertyManager/deleteHouse?id=@item.HouseId">Delete</a>
 
                         </div>
                     </td>
@@ -103,7 +75,5 @@
             }
         </table>
 
-    </div>
-</main>
 
 <!--Main layout-->

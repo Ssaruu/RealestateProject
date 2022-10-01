@@ -1,0 +1,35 @@
+﻿@model Project.Models.ApplicationUser
+@{
+    ViewData["Title"] = "UserInsertionCompleted";
+    Layout = "~/Views/Shared/_PropertyManager.cshtml";
+}
+
+<section class="form-section">
+    <h1 class="title">User Insertion Completed</h1>
+    <div class="container">
+        <div class="text-center">
+            <div class="userInsertionCompleted">
+                <p class="d-inline-block">First Name:</p>
+                <p class="d-inline-block">@Model.FirstName</p>
+            </div>
+            <div class="userInsertionCompleted">
+                <p class="d-inline-block">Last Name:</p>
+                <p class="d-inline-block">@Model.LastName</p>
+            </div>
+            <div class="userInsertionCompleted">
+                <p class="d-inline-block">User Name:</p>
+                <p class="d-inline-block">@Model.UserName</p>
+            </div>
+
+            <div class="userInsertionCompleted">
+                <p class="d-inline-block">Initial Password:</p>
+                <p class="d-inline-block">@Model.Password</p>
+            </div>
+            <p class="alert-danger">Change the initial password so that it can be more secure</p>
+        </div>
+
+        <div class="pt-3">
+            <a id="gotToHome" asp-controller="PropertyManager" asp-action="Index">Go to home</a>
+        </div>
+    </div>
+</section>

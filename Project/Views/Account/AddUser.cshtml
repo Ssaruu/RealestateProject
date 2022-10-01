@@ -1,0 +1,39 @@
+﻿@model Project.Models.ApplicationUser;
+@{
+    ViewData["Title"] = "AddSalesPerson";
+    Layout = "~/Views/Shared/_PropertyManager.cshtml";
+}
+
+<form method="post" asp-controller="Account" asp-action="AddUser">
+    <section class="form-section">
+        <h1 class="title">Add User</h1>
+        <div class="container">
+            <div class="form row">
+                <div class="form-field col-lg-6">
+                    <input id="firstName" class="input-text" type="text" asp-for="FirstName" />
+                    <label for="firstName" id="firstNameLabel" class="label">First Name</label>
+                    <span asp-validation-for="FirstName"></span>
+                </div>
+                <div class="form-field col-lg-6">
+                    <input id="lastName" class="input-text" type="text" asp-for="LastName" />
+                    <label for="lastName" id="lastNameLabel" class="label">Last Name</label>
+                    <span asp-validation-for="LastName"></span>
+                </div>
+                <div class="form-field col-lg-6">
+                    <select class="input-text" id="type" asp-for="RoleId">
+                        <option value="Choose type" class="label" hidden selected>Choose type</option>
+                        <option value="1">Property Manager</option>
+                        <option value="2">Sales Person</option>
+
+                    </select>
+                    <span asp-validation-for="RoleId"></span>
+
+                </div>
+
+                <div class="form-field col-lg-12">
+                    <input class="submit-btn" type="submit" value="Submit" />
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

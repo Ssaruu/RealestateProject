@@ -1,0 +1,64 @@
+﻿@model Project.Models.House;
+
+
+@{
+    ViewData["Title"] = "Insertion";
+    Layout = "~/Views/Shared/_PropertyManager.cshtml";
+}
+
+
+        <form method="post" asp-action="DeleteHouse">
+            <section class="form-section">
+                <h1 class="title">Delete House</h1>
+                <div class="container">
+                    <div class="form row text-center">
+                        <div class="col-lg-6">
+                            <span>ID:</span>
+                            <span>@Model.HouseId</span>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <span>House size:</span>
+                            <span>@Model.HouseSize</span>
+                        </div>
+
+
+                        <div class="col-lg-6">
+                            <span>Address:</span>
+                            <span>@Model.Address</span>
+                        </div>
+
+
+                        <div class="col-lg-6">
+                            <span>Price:</span>
+                            <span>@Model.Price</span>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <span>Status:</span>
+                            <span>@Model.HouseStatus</span>
+                        </div>
+
+
+                        <div class="col-lg-6">
+                            <span>Type:</span>
+                            <span>@Model.HouseType</span>
+                        </div>
+
+
+
+                        <div class="col-lg-6">
+                            <span>House Floor No:</span>
+                            <span>@Model.HouseFloorNo</span>
+                        </div>
+
+                        <div class="col-lg-12 mt-4">
+                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                        </div>
+                        <div style="visibility:hidden">
+                            <input type="hidden" asp-for="HouseId">Model.HouseId</input>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </form>    

@@ -64,8 +64,8 @@
     max-width: 800px;
     margin: 10px auto;
     position: relative;
-/*    box-shadow: 0 10px 30px 0px rgba(0,0,0,0.1);*/
-    padding: 30px;
+/*    box-shadow: 0 10px 30px 0px rgba(0,0,0,0.1);
+*/    padding: 30px;
 }
 
 
@@ -134,6 +134,18 @@
     border-radius: 5px;
 }
 
+#search {
+    display: inline-block;
+    background-color: #5543ca;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 16px;
+    border: none;
+    width: 100px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
 .form .input-text:not(:checked) {
     color: #5543ca;
 }
@@ -186,10 +198,50 @@
     border-bottom: 0.1px solid #5543ca;
 }
 
-.table{
-    border-bottom-color:aqua;
+.welcomeTitle {
+    margin: 50px;
+    font-size: 60px;
+    color: #5543ca;
 }
 
-#name{
+.searchByList {
+    margin-left: 5px;
+    border-width: 0 0 2px 0;
+}
 
+
+.userInsertionCompleted {
+    color: #5543ca;
+    font-size: 20px;
+}
+
+#gotToHome {
+    color: #5543ca;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+#loginSubmit {
+    position: absolute;
+    left: 35%;
+    display: inline-block;
+    background-color: #5543ca;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 16px;
+    padding: 8px 16px;
+    border: none;
+    width: 200px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin-top: 25px;
+}
+
+
+
+@media screen and (max-width: 860) {
+    #search {
+        width: 10cm
+    }
 }

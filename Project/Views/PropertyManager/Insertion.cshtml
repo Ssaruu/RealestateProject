@@ -6,67 +6,12 @@
     Layout = "~/Views/Shared/_PropertyManager.cshtml";
 }
 
-<header>
-    <!-- Navbar -->
-    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-        <!-- Container wrapper -->
-        <div class="container-fluid">
-            <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
-                    aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Brand -->
-            <a class="navbar-brand" href="#">
-                <p id="logo">SRN-RealEstate</p>
-            </a>
-            <!-- Search form -->
-            @*<form class="d-none d-md-flex input-group w-auto my-auto">
-                <select id="type" autocomplete="off" type="search" class="form-control rounded" placeholder='Search By'
-                        style="min-width: 225px">
-                    <option value="Search By" class="label" hidden selected>Search By</option>
-                    <option value="ID" asp-action="ViewAll">ID</option>
-                    <option value="Name">Name</option>
-                </select>
-                <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
-
-            </form>*@
-        </div>
-        <!-- Container wrapper -->
-    </nav>
-    <!-- Navbar --
-    <!-- Sidebar -->
-    <nav id="sidebarMenu" class="collapse navbar-collapse d-lg-block sidebar collapse bg-white">
-        <div class="position-sticky">
-            <div class="list-group list-group-flush mx-3 mt-4">
-                <a class="list-group-item list-group-item-action active" asp-controller="PropertyManager" asp-action="Index"><i class="fa fa-home"></i>&nbsp Main dashboard</a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="ViewAll"><i class="fa fa-eye"></i>&nbsp View Property</a>
-                <a class="list-group-item list-group-item-action " asp-controller="PropertyManager" asp-action="Insertion"><i class="fa fa-plus-circle"></i>&nbsp Insert Property</a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="Report"><i class="fa fa-flag"></i> &nbsp Report </a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="AddUser"><i class="fa fa-user-plus"></i>&nbsp Add User</a>
-                <a class="list-group-item list-group-item-action" asp-controller="PropertyManager" asp-action="ViewUserDetail"><i class="fa fa-info"></i>&nbsp View Users</a>
-
-            </div>
-        </div>
-    </nav>
-    <!-- Sidebar -->
-
-</header>
-
-<!--Main Navigation-->
-<!--Main layout-->
-<main style="min-height: auto;">
-    <div class="container pt-4">
         <form method="post" asp-action="Insertion">
             <section class="form-section">
                 <h1 class="title">Insertion</h1>
                 <div class="container">
                     <div class="form row">
-                        <div class="form-field col-lg-6">
-                            <input asp-for="HouseId" class="input-text" type="text" name="" />
-                            <label for="houseId" id="houseIDLabel" class="label" asp-for="HouseId"></label>
-                        </div>
+
                         <div class="form-field col-lg-6">
                             <select class="input-text" id="type" asp-for="HouseType">
                                 <option value="Choose type" class="label" hidden selected>Choose type</option>
@@ -101,6 +46,10 @@
                             <input id="picture" class="input-text" type="text" name="" />
                             <label for="picture" class="label">Picture(Optional)</label>
                         </div>
+                        <div class="form-field col-lg-6">
+                            <input asp-for="HouseId" hidden class="input-text" type="text" name="" />
+                            <label for="houseId" id="houseIDLabel" hidden class="label" asp-for="HouseId"></label>
+                        </div>
                         <div class="form-field col-lg-12">
                             <input class="submit-btn" type="submit" value="submit" />
                         </div>
@@ -108,6 +57,4 @@
                 </div>
             </section>
         </form>
-    </div>
-</main>
-<!--Main layout-->
+
