@@ -22,35 +22,39 @@ namespace Project.Controllers
             _db = db;
             _userManager = userManager;
         }
-        public IActionResult Index( /*string index="", string type=""*/)
+        public IActionResult Index(string index = "", string type = "")
         {
-            //IEnumerable<Transaction> transaction;
-            //if(type=="" || type== null)
-            //{
-            //    transaction = _db.Transactions.Where(temp => temp.Address.Contains(index)).ToList();
-            //}
-            //if (type == "id")
-            //{
-            //    transaction = _db.transaction.Where(temp => temp.Address.Contains(index)).ToList();
-            //}
-            //else if (type == "price")
-            //{
-            //    transaction = _db.House.Where(temp => temp.Price.ToString().Contains(index)).ToList();
-            //}
-            //else if (type == "size")
-            //{
-            //    houses = _db.House.Where(temp => temp.HouseSize.ToString().Contains(index)).ToList();
-            //}
-            //else if (type == "status")
-            //{
-            //    houses = _db.House.Where(temp => temp.HouseStatus.Contains(index)).ToList();
-            //}
-            //else
-            //{
-            //    houses = _db.House.Where(temp => temp.Address.Contains(index)).ToList();
-            //}
+            IEnumerable<House> houses;
+            if (type == "" || type == null)
+            {
+                houses = _db.House.Where(temp => temp.Address.Contains(index)).ToList();
+            }
 
-            return View();
+            if (type == "id")
+            {
+                houses = _db.House.Where(temp => temp.HouseId.ToString().Contains(index)).ToList();
+
+            }
+
+            else if (type == "price")
+            {
+                houses = _db.House.Where(temp => temp.Price.ToString().Contains(index)).ToList();
+            }
+            else if (type == "size")
+            {
+                houses = _db.House.Where(temp => temp.HouseSize.ToString().Contains(index)).ToList();
+            }
+            else if (type == "status")
+            {
+                houses = _db.House.Where(temp => temp.HouseStatus.Contains(index)).ToList();
+            }
+            else
+            {
+                houses = _db.House.Where(temp => temp.Address.Contains(index)).ToList();
+            }
+
+
+            return View(houses);
         }
 
         public async Task<IActionResult> InsertAsync(int? houseid)
