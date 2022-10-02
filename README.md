@@ -6,3 +6,5 @@ Nazrawit Berhanu
 Romhay Yemane
 Saron Bisrat
 Solyana Moges
+
+To login:/Account/AddUser then create a username and password ..
