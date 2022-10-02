@@ -3,8 +3,18 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_PropertyManager.cshtml";
 }
-<div style="margin:60px">
-    <h1 class="welcomeTitle">Welcome</h1>
-    <h2 class="welcomeTitle">@ViewBag.status</h2>
+@*<div style="margin:60px">
+        <h1 class="welcomeTitle">Welcome</h1>
+        <h2 class="welcomeTitle">@ViewBag.status</h2>
 
+    </div>*@
+
+<div class="jumbotron" style=" background-color: #232d4d; ">
+    <h1 class="display-4" style="color:white">SRN-Realestate</h1>
+    <p class="lead" style="color: white">Welcome To Property Manager Page.</p>
+    <hr class="my-4">
+    <p style="color:darkgray">This system helps you keep track of your real-estate properties and sales.</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" asp-controller="PropertyManager" asp-action="Insertion" role="button">Learn more</a>
+    </p>
 </div>

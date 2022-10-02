@@ -20,13 +20,9 @@ namespace Project.Controllers
         {
             ViewBag.status = status;
             return View();
-        }
-        //public IActionResult ViewAll()
-        //{
-        //    IEnumerable<House> data = _db.House;
 
-        //    return View(data);
-        //}
+        }
+      
         public IActionResult ViewUserDetail()
         {
             IEnumerable<User> data = _db.User;

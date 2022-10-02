@@ -52,11 +52,10 @@
 
 
 #logo {
-    font-style: italic;
+    font-family:
     font-size: 15px;
     font-weight: bold;
-    color: dodgerblue;
-   
+    color: #232d4d;
 }
 
 
@@ -244,4 +243,9 @@
     #search {
         width: 10cm
     }
+}
+.jumbotron {
+    background-image: url('file:///C:\Users\Saronbisrat\source\repos\Project\Project\wwwroot\resource\photo_2022-08-08_18-14-37.jpg');
+    background-size: cover;
+    height: 100%;
 }

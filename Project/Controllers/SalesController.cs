@@ -22,7 +22,13 @@ namespace Project.Controllers
             _db = db;
             _userManager = userManager;
         }
-        public IActionResult Index(string index = "", string type = "")
+        public IActionResult Index(string? status = "")
+        {
+            ViewBag.status = status;
+            return View();
+
+        }
+        public IActionResult ViewAll(string index = "", string type = "")
         {
             IEnumerable<House> houses;
             if (type == "" || type == null)

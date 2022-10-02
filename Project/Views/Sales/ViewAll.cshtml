@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Project.Models.House>;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Sales.cshtml";
+}
+
+
+
+<section class="form-section">
+
+    <h1>Succesfully Inserted</h1>
+
+    <form>
+        <div class="container">
+            <div class="form row">
+                <div class="form-field col-lg-5">
+                    <label for="type" class="searchByLabel">Search By: </label>
+                    <select id="type" class="searchByList" name="type">
+                        <option value="id">ID</option>
+                        <option value="size">Size</option>
+                        <option value="address">Address</option>
+                        <option value="status">Status</option>
+                        <option value="price">price</option>
+
+                    </select>
+                </div>
+                <div class="form-field col-lg-6">
+
+                    <label for="index" class="searchByLabel">Index</label>
+                    <input type="text" id="index" class="textBox" placeholder="" name="index" />
+                </div>
+                <div class="form-field col-lg-12">
+                    <button class="submit-btn" type="submit">Search</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</section>
+
+
+
+<div class="container">
+        <table class="table">
+            <tr class="text-center">
+                <th>ID</th>
+                <th>Size</th>
+                <th>Address</th>
+                <th>Price</th>
+                <th>Status</th>
+            <th>Delete</th>
+            </tr>
+            @foreach (var house in Model)
+            {
+                <tr class="text-center">
+                    <td>@house.HouseId</td>
+                    <td>@house.HouseSize</td>
+                    <td>@house.Address</td>
+                    <td>@house.Price</td>
+                    <td>@house.HouseStatus</td>
+                    <td><a class="btn btn-outline-danger" href="/Sales/Insert?houseid=@house.HouseId">Delete</a></td>
+                </tr>
+            }
+        </table>
+
+    </div>
